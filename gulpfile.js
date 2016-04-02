@@ -64,7 +64,7 @@ gulp.task('sass', ['fonts'], function () {
 });
 
 gulp.task('watch:js', function() {
-    gulp.watch(['*.js', 'application/**/*.js'], ['js']);
+    gulp.watch(['*.js', 'application/**/*.js'], ['js:dev']);
 });
 
 gulp.task('watch:sass', function () {
