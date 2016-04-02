@@ -7,13 +7,16 @@
   "dependencies": {
     "react": "0.14.*",
     "react-dom": "0.14.*",
+    "react-lazy-load": "3.0.*",
     "redux": "3.3.*",
     "react-redux": "4.4.*",
     "react-router": "2.0.*",
     "react-router-redux": "4.0.*",
     "redux-thunk": "2.0.*",
+    "reselect": "2.2.*",
     "isomorphic-fetch": "2.2.*",
-    "bootstrap-sass": "3.3.*"
+    "bootstrap-sass": "3.3.*",
+    "lodash.chunk": "4.0.*"
   },
   "devDependencies": {
     "browserify": "~13.0",

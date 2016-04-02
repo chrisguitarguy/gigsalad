@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Gigsalad</title>
-        <link rel="stlyesheet" href="/assets/app.css" />
+        <link rel="stylesheet" href="/assets/app.css" />
     </head>
     <body>
         <div id="app"></div>

@@ -1,2 +1,12 @@
 @import "variables";
 @import "bootstrap";
+
+.grid-performer {
+  margin-bottom: $grid-gutter-width;
+}
+
+footer[role="main"] {
+  background: $gray-lighter;
+  margin-top: 2 * $grid-gutter-width;
+  padding: 3rem 0;
+}
