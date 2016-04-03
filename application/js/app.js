@@ -9,12 +9,18 @@ import Root from './containers/Root';
 import App from './components/App';
 import ConnectedIndex from './components/ConnectedIndex';
 import ConnectedPerformer from './components/ConnectedPerformer';
+import Error from './components/Error';
+
+function Error404() {
+    return <Error title="Page Not Found" />;
+}
 
 function makeRoutes() {
     return (
         <Route path="/" component={App}>
             <IndexRoute component={ConnectedIndex} />
             <Route path=":id/:slug" component={ConnectedPerformer} />
+            <Route path="*" component={Error404} />
         </Route>
     );
 }
