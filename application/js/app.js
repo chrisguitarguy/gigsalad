@@ -8,11 +8,13 @@ import  * as reducers from './reducers';
 import Root from './containers/Root';
 import App from './components/App';
 import Index from './components/Index';
+import ConnectedPerformer from './components/ConnectedPerformer';
 
 function makeRoutes() {
     return (
         <Route path="/" component={App}>
             <IndexRoute component={Index} />
+            <Route path=":id/:slug" component={ConnectedPerformer} />
         </Route>
     );
 }

@@ -9,14 +9,14 @@ class GridPerformer extends React.Component {
         return (
             <div className="col-xs-6 col-sm-3 grid-performer">
                 <LazyLoad>
-                    <div className="grid-performer-content">
+                    <Link to={`${p.id}/${p.slug}`} className="grid-performer-content">
                             <img src={p.thumbnail.url} width="100%" />
                         <div className="performer-info">
                             <p>{p.name}</p>
-                            <p>{p.statename}, {p.country}</p>
+                            <p>{p.city}, {p.statename}, {p.country}</p>
                             <p><small>{p.category}</small></p>
                         </div>
-                    </div>
+                    </Link>
                 </LazyLoad>
             </div>
         );

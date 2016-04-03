@@ -30,7 +30,41 @@ function shouldFetchPerformers(state) {
 
 export function fetchPerformers() {
     return function (dispatch, getState) {
-        console.log(shouldFetchPerformers(getState()));
         return shouldFetchPerformers(getState()) ? dispatch(_fetchPerformers()) : Promise.resolve();
+    }
+}
+
+export const REQUEST_PERFORMER = 'REQUEST_PERFORMER';
+function requestPerformer(id) {
+    return {
+        type: REQUEST_PERFORMER,
+        id: id
+    };
+}
+
+export const RECEIVE_PERFORMER = 'RECEIVE_PERFORMER';
+function receivePerformer(performer) {
+    return {
+        type: RECEIVE_PERFORMER,
+        performer: performer
+    };
+}
+
+function _fetchPerformer(id) {
+    return function (dispatch) {
+        dispatch(requestPerformer(id));
+        fetch(`/api/performers/${id}`)
+            .then(response => response.json())
+            .then(json => dispatch(receivePerformer(json.data)));
+    };
+}
+
+function shouldFetchPerformer(state, id) {
+    return !state.performer.performer || state.performer.performer.id != id;
+}
+
+export function fetchPerformer(id) {
+    return function (dispatch, getState) {
+        return shouldFetchPerformer(getState(), id) ? dispatch(_fetchPerformer(id)) : Promise.resolve();
     }
 }

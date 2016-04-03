@@ -12,6 +12,7 @@ footer[role="main"] {
 }
 
 .grid-performer-content {
+  display: block;
   position: relative;
 
   .performer-info {
@@ -26,5 +27,13 @@ footer[role="main"] {
     p {
       margin-bottom: 0;
     }
+  }
+}
+
+.single-performer {
+  img {
+    max-width: 100%;
+    float: left;
+    margin: 0 20px 20px 0;
   }
 }
