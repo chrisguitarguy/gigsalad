@@ -21,7 +21,13 @@ cd gigsalad
 make deps
 ```
 
-#### 3. Run the Dev Server & Visit `localhost:9090`
+#### 3. Build the Frontend Code
+
+```
+make build
+```
+
+#### 4. Run the Dev Server & Visit `localhost:9090`
 
 ```
 make serve

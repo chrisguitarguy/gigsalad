@@ -1,4 +1,4 @@
-.PHONY: fixtures help phpdeps jsdeps deps server
+.PHONY: fixtures help phpdeps jsdeps deps server build
 
 MYSQL_USER ?= root
 
@@ -9,6 +9,7 @@ help:
 	@echo "  phpdeps -- Install the PHP dependencies"
 	@echo "  jsdeps -- Install the JavaScript dependencies"
 	@echo "  serve -- Fire up the dev server on localhost:9090"
+	@echo "  build -- Build the frontend code"
 
 fixtures:
 	mysql -u "$(MYSQL_USER)" -e 'DROP DATABASE IF EXISTS gigsalad'
@@ -25,3 +26,6 @@ deps: phpdeps jsdeps
 
 serve:
 	php -S localhost:9090
+
+build:
+	gulp
