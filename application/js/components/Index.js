@@ -1,22 +1,12 @@
 import React from 'react';
-import PerformerList from './PerformerList';
+import FilteredPerformerList from './FilteredPerformerList';
 
 export default class Index extends React.Component {
     render() {
         return (
             <div className="container-fluid">
-                <PerformerList
-                    performers={this.props.performers}
-                    loading={this.props.loading}
-                    fetchPerformers={this.props.fetchPerformers} />
+                <FilteredPerformerList />
             </div>
         );
     }
 }
-
-Index.propTypes = {
-    performers: React.PropTypes.array,
-    loading: React.PropTypes.bool.isRequired,
-    fetchPerformers: React.PropTypes.func.isRequired
-
-};
