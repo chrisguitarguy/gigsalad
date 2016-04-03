@@ -15,20 +15,8 @@ git clone https://github.com/chrisguitarguy/gigsalad.git
 cd gigsalad
 ```
 
-#### 2. Install the Depencencies
+#### 2. Install the Fixtures, Depencencies, Build the Frontend Code, & Run the Server
 
 ```
-make deps
-```
-
-#### 3. Build the Frontend Code
-
-```
-make build
-```
-
-#### 4. Run the Dev Server & Visit `localhost:9090`
-
-```
-make serve
+make all
 ```
