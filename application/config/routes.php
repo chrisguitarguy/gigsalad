@@ -52,6 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'frontend';
 $route['api/([a-z]+)'] = '$1/index';
 $route['api/([a-z]+)/(\d+)'] = '$1/view/$2';
-$route['.+']['GET'] = 'index/index';
-$route['404_override'] = 'index/indexAction';
+$route['(?!api/).*'] = 'frontend/index';
 $route['translate_uri_dashes'] = FALSE;
