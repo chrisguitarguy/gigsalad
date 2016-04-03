@@ -68,3 +68,21 @@ export function fetchPerformer(id) {
         return shouldFetchPerformer(getState(), id) ? dispatch(_fetchPerformer(id)) : Promise.resolve();
     }
 }
+
+function filterAction(actionType) {
+    return function (value) {
+        return {
+            type: actionType,
+            filter: value
+        };
+    };
+}
+
+export const FILTER_CATEGORY = 'FILTER_CATEGORY';
+export const filterCategory = filterAction(FILTER_CATEGORY);
+
+export const FILTER_COUNTRY = 'FILTER_COUNTRY';
+export const filterCountry = filterAction(FILTER_COUNTRY);
+
+export const FILTER_STATE = 'FILTER_STATE';
+export const filterState = filterAction(FILTER_STATE);

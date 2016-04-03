@@ -65,15 +65,16 @@ export function performer(state, action) {
     return state;
 }
 
-export function countryFilter(state=null, action) {
-    return state;
-}
+function filterReducer(actionType) {
+    return function (state, action) {
+        if (typeof state === 'undefined') {
+            return null;
+        }
 
-export function stateFilter(state=null, action) {
+        return action.type === actionType ? action.filter : state;
+    };
+};
 
-    return state;
-}
-
-export function categoryFilter(state=null, action) {
-    return state;
-}
+export const countryFilter = filterReducer(actions.FILTER_COUNTRY);
+export const categoryFilter = filterReducer(actions.FILTER_CATEGORY);
+export const stateFilter = filterReducer(actions.FILTER_STATE);

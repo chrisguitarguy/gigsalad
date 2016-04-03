@@ -16,7 +16,8 @@
     "reselect": "2.2.*",
     "isomorphic-fetch": "2.2.*",
     "bootstrap-sass": "3.3.*",
-    "lodash.chunk": "4.0.*"
+    "lodash.chunk": "4.0.*",
+    "lodash.uniq": "4.0.*"
   },
   "devDependencies": {
     "browserify": "~13.0",

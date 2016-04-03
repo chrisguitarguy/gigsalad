@@ -45,6 +45,15 @@ export default class PerformerList extends React.Component {
             );
         }
 
+        if (!performers.length) {
+            return (
+                <div className="performers text-center">
+                    <p className="lead">No Performers Found</p>
+                    <p>Try adjusting your search criteria above.</p>
+                </div>
+            );
+        }
+
         return (
             <div className="performers">
                 {chunk(performers, 4).map(this.performerRow.bind(this))}
