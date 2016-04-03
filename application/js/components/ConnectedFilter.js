@@ -18,7 +18,10 @@ function mapStateToProps(state) {
         loading: state.performers.loading,
         categories: performers ? pluck(performers, 'category') : [],
         states: performers ? pluck(performers, 'state') : [],
-        countries: performers ? pluck(performers, 'country') : []
+        countries: performers ? pluck(performers, 'country') : [],
+        categoryFilter: state.categoryFilter,
+        countryFilter: state.countryFilter,
+        stateFilter: state.stateFilter
     };
 }
 
