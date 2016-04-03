@@ -15,12 +15,24 @@ function receivePerformers(performers) {
     };
 }
 
+export const ERRORED_PERFORMERS = 'ERRORED_PERFORMERS';
+function errorPerformers() {
+    return {
+        type: ERRORED_PERFORMERS
+    };
+}
+
 function _fetchPerformers() {
     return function (dispatch) {
         dispatch(requestPerformers());
         fetch('/api/performers')
-            .then(response => response.json())
-            .then(json => dispatch(receivePerformers(json.data)));
+            .then(response => {
+                if (response.ok) {
+                    return response.json().then(json => dispatch(receivePerformers(json.data)));
+                } else {
+                    dispatch(errorPerformers());
+                }
+            }, () => dispatch(errorPerformer()));
     };
 }
 
@@ -50,12 +62,24 @@ function receivePerformer(performer) {
     };
 }
 
+export const ERRORED_PERFORMER = 'ERRORED_PERFORMER';
+function errorPerformer() {
+    return {
+        type: ERRORED_PERFORMER
+    };
+}
+
 function _fetchPerformer(id) {
     return function (dispatch) {
         dispatch(requestPerformer(id));
         fetch(`/api/performers/${id}`)
-            .then(response => response.json())
-            .then(json => dispatch(receivePerformer(json.data)));
+            .then(response => {
+                if (response.ok) {
+                    return response.json().then(json => dispatch(receivePerformer(json.data)));
+                } else {
+                    dispatch(errorPerformer());
+                }
+            }, () => dispatch(errorPerformer()));
     };
 }
 

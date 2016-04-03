@@ -4,10 +4,12 @@
  *          all: Array,
  *          visible: Array,
  *          loading: Boolean
+ *          errored: Boolean
  *      },
  *      performer: {
  *          loading: Boolean
  *          performer: object|null
+ *          errored: Boolean
  *      },
  *      countryFilter: string|null,
  *      stateFilter: string|null,
@@ -21,7 +23,8 @@ export function performers(state, action) {
     if (typeof state === 'undefined') {
         return {
             all: null,
-            loading: true
+            loading: true,
+            errored: false
         };
     }
 
@@ -29,12 +32,20 @@ export function performers(state, action) {
         case actions.REQUEST_PERFORMERS:
             return {
                 loading: true,
-                all: null
+                all: null,
+                errored: false
             };
         case actions.RECEIVE_PERFORMERS:
             return {
                 loading: false,
-                all: action.performers
+                all: action.performers,
+                errored: false
+            };
+        case actions.ERRORED_PERFORMERS:
+            return {
+                loading: false,
+                all: null,
+                errored: true
             };
     }
 
@@ -45,7 +56,8 @@ export function performer(state, action) {
     if (typeof state === 'undefined') {
         return {
             loading: true,
-            performer: null
+            performer: null,
+            errored: false
         };
     }
 
@@ -53,12 +65,20 @@ export function performer(state, action) {
         case actions.REQUEST_PERFORMER:
             return {
                 loading: true,
-                performer: null
+                performer: null,
+                errored: false
             };
         case actions.RECEIVE_PERFORMER: 
             return {
                 loading: false,
-                performer: action.performer
+                performer: action.performer,
+                errored: false
+            };
+        case actions.ERRORED_PERFORMER:
+            return {
+                loading: false,
+                performer: null,
+                errored: true
             };
     }
 

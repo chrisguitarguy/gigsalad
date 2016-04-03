@@ -7,13 +7,13 @@ import thunkMiddleware from 'redux-thunk';
 import  * as reducers from './reducers';
 import Root from './containers/Root';
 import App from './components/App';
-import Index from './components/Index';
+import ConnectedIndex from './components/ConnectedIndex';
 import ConnectedPerformer from './components/ConnectedPerformer';
 
 function makeRoutes() {
     return (
         <Route path="/" component={App}>
-            <IndexRoute component={Index} />
+            <IndexRoute component={ConnectedIndex} />
             <Route path=":id/:slug" component={ConnectedPerformer} />
         </Route>
     );

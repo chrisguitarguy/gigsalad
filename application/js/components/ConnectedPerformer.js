@@ -5,7 +5,8 @@ import * as actions from '../actions';
 function mapStateToProps(state) {
     return {
         performer: state.performer.performer,
-        loading: state.performer.loading
+        loading: state.performer.loading,
+        errored: state.performer.errored
     };
 }
 

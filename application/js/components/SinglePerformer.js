@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
+import Error from './Error';
 
 export default class SinglePerformer extends React.Component {
     componentDidMount() {
@@ -16,6 +17,10 @@ export default class SinglePerformer extends React.Component {
                     </p>
                 </div>
             );
+        }
+
+        if (this.props.errored) {
+            return <Error title="Performer Not Found" />;
         }
 
         const p = this.props.performer;

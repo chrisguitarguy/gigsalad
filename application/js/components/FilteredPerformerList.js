@@ -13,7 +13,6 @@ function filterPerformers(performers, state) {
 
     const { categoryFilter, countryFilter, stateFilter } = state;
 
-    console.log(state);
     return performers.filter(function (p) {
         return matches(p, 'category', categoryFilter)
             && matches(p, 'country', countryFilter)
