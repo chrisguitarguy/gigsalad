@@ -13,9 +13,9 @@ help:
 	@echo "  all -- Install the fitures, deps, build the frontend, and run the dev server"
 
 fixtures:
-	mysql -u "$(MYSQL_USER)" -e 'DROP DATABASE IF EXISTS gigsalad'
-	mysql -u "$(MYSQL_USER)" -e 'CREATE DATABASE gigsalad'
-	mysql -u "$(MYSQL_USER)" gigsalad < application/fixtures/performers.sql
+	mysql -u "$(MYSQL_USER)" -e 'DROP DATABASE IF EXISTS chrisdavis_gigsalad'
+	mysql -u "$(MYSQL_USER)" -e 'CREATE DATABASE chrisdavis_gigsalad'
+	mysql -u "$(MYSQL_USER)" chrisdavis_gigsalad < application/fixtures/performers.sql
 
 phpdeps:
 	composer install
