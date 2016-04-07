@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import thunkMiddleware from 'redux-thunk';
 import  * as reducers from './reducers';
@@ -29,7 +29,10 @@ function run() {
     const store = createStore(combineReducers({
         ...reducers,
         routing: routerReducer
-    }), applyMiddleware(thunkMiddleware));
+    }), compose(
+        applyMiddleware(thunkMiddleware),
+        typeof window === 'object' && typeof window.devToolsExtension !== 'undefined' ? window.devToolsExtension() : f => f
+    ));
     const history = syncHistoryWithStore(browserHistory, store);
     const routes = makeRoutes();
 
